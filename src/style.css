@@ -475,7 +475,7 @@ button {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(3rem, 6vw, 6rem);
-  align-items: start;
+  align-items: center;
 }
 
 @media (max-width: 768px) {
@@ -507,25 +507,61 @@ button {
 }
 
 .philosophy-photo {
-  max-width: 420px;
-  margin-top: 2.5rem;
+  width: 100%;
+  margin: 0;
 }
 
-.philosophy-detail {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
+.philosophy-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: clamp(3rem, 5vw, 5rem);
+  padding-top: clamp(2rem, 4vw, 3.5rem);
+  border-top: 1px solid var(--border-subtle);
 }
 
 .philosophy-stat {
-  padding-bottom: 2.5rem;
-  border-bottom: 1px solid var(--border-subtle);
+  padding: 0 clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.philosophy-stat + .philosophy-stat {
+  border-left: 1px solid var(--border-subtle);
+}
+
+.philosophy-stat:first-child {
+  padding-left: 0;
 }
 
 .philosophy-stat:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
+  padding-right: 0;
 }
+
+@media (max-width: 768px) {
+  .philosophy-stats {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-top: 2rem;
+  }
+
+  .philosophy-stat {
+    padding: 0 0 2rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .philosophy-stat + .philosophy-stat {
+    border-left: none;
+  }
+
+  .philosophy-stat:first-child {
+    padding-left: 0;
+  }
+
+  .philosophy-stat:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    padding-right: 0;
+  }
+}
+
 
 .stat-number {
   font-family: var(--serif);

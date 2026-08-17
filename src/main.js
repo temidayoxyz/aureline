@@ -57,28 +57,28 @@ function initApp() {
       <section class="philosophy" id="philosophy">
         <div class="container">
           <div class="philosophy-inner">
-            <div class="reveal">
+            <div class="philosophy-copy reveal">
               <p class="section-label">Our Philosophy</p>
               <p class="philosophy-text">We believe skincare should be honest. Not simplified — honest. Every formula begins with a single question: would we put this on our own skin?</p>
               <p class="philosophy-text">The answer determines everything that follows. No fillers. No compromises. No ingredients chosen for cost or shelf life over efficacy.</p>
-              <figure class="photo-frame philosophy-photo">
-                <img src="/aureline/images/philosophy.jpg" alt="Dried yellow flowers in a laboratory beaker" loading="lazy" decoding="async" />
-                <figcaption class="sr-only">Botanical specimens awaiting extraction</figcaption>
-              </figure>
             </div>
-            <div class="philosophy-detail">
-              <div class="philosophy-stat reveal">
-                <p class="stat-number">100%</p>
-                <p class="stat-label">Botanical origin. No synthetics, no petrochemicals, no compromises on purity.</p>
-              </div>
-              <div class="philosophy-stat reveal">
-                <p class="stat-number">72hr</p>
-                <p class="stat-label">From harvest to formulation. Ingredients are processed within three days to preserve potency.</p>
-              </div>
-              <div class="philosophy-stat reveal">
-                <p class="stat-number">200</p>
-                <p class="stat-label">Batches per product annually. Small enough to inspect every bottle. Large enough to share.</p>
-              </div>
+            <figure class="photo-frame philosophy-photo reveal">
+              <img src="/aureline/images/philosophy.jpg" alt="Dried yellow flowers in a laboratory beaker" loading="lazy" decoding="async" />
+              <figcaption class="sr-only">Botanical specimens awaiting extraction</figcaption>
+            </figure>
+          </div>
+          <div class="philosophy-stats">
+            <div class="philosophy-stat reveal">
+              <p class="stat-number">100%</p>
+              <p class="stat-label">Botanical origin. No synthetics, no petrochemicals, no compromises on purity.</p>
+            </div>
+            <div class="philosophy-stat reveal">
+              <p class="stat-number">72hr</p>
+              <p class="stat-label">From harvest to formulation. Ingredients are processed within three days to preserve potency.</p>
+            </div>
+            <div class="philosophy-stat reveal">
+              <p class="stat-number">200</p>
+              <p class="stat-label">Batches per product annually. Small enough to inspect every bottle. Large enough to share.</p>
             </div>
           </div>
         </div>
