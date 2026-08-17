@@ -167,6 +167,31 @@ button {
   color: var(--text);
 }
 
+/* Over the dark hero: light text until the nav gains its cream background */
+.nav:not(.scrolled):not(.menu-open) .nav-logo,
+.nav:not(.scrolled):not(.menu-open) .nav-links a {
+  color: rgba(250, 247, 242, 0.92);
+}
+
+.nav:not(.scrolled):not(.menu-open) .nav-links a::after {
+  background: rgba(250, 247, 242, 0.85);
+}
+
+.nav:not(.scrolled):not(.menu-open) .nav-cta {
+  border-color: rgba(250, 247, 242, 0.7);
+  color: var(--bg);
+}
+
+.nav:not(.scrolled):not(.menu-open) .nav-cta:hover {
+  background: var(--bg);
+  color: var(--text);
+  border-color: var(--bg);
+}
+
+.nav:not(.scrolled):not(.menu-open) .nav-toggle span {
+  background: var(--bg);
+}
+
 .nav-cta {
   font-size: 0.78rem;
   font-weight: 500;
@@ -250,6 +275,35 @@ button {
   text-align: center;
   padding: var(--section-pad) 2rem;
   position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.82) contrast(1.04);
+  animation: hero-drift 28s ease-in-out infinite alternate;
+}
+
+@keyframes hero-drift {
+  from { transform: scale(1); }
+  to { transform: scale(1.07); }
+}
+
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(42, 36, 32, 0.6), rgba(42, 36, 32, 0.42) 45%, rgba(42, 36, 32, 0.72)),
+    linear-gradient(160deg, rgba(156, 107, 74, 0.16), transparent 55%);
+}
+
+.hero > *:not(.hero-bg):not(.hero-scrim):not(.botanical-line) {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-overline {
@@ -258,7 +312,7 @@ button {
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: #D8AE8E;
   margin-bottom: 2rem;
 }
 
@@ -267,9 +321,10 @@ button {
   font-size: clamp(2.8rem, 7vw, 6rem);
   font-weight: 300;
   line-height: 1.05;
-  color: var(--text);
+  color: var(--bg);
   max-width: 800px;
   margin-bottom: 2rem;
+  text-shadow: 0 2px 24px rgba(42, 36, 32, 0.35);
 }
 
 .hero-title em {
@@ -281,7 +336,7 @@ button {
   font-family: var(--sans);
   font-size: clamp(0.95rem, 1.5vw, 1.1rem);
   font-weight: 300;
-  color: var(--text-secondary);
+  color: rgba(250, 247, 242, 0.82);
   max-width: 480px;
   line-height: 1.8;
   margin-bottom: 3.5rem;
@@ -290,7 +345,7 @@ button {
 .hero-line {
   width: 40px;
   height: 1px;
-  background: var(--accent);
+  background: var(--accent-light);
   margin-bottom: 3.5rem;
 }
 
@@ -333,12 +388,33 @@ button {
   color: var(--accent);
 }
 
+.hero .btn-outline {
+  border-color: rgba(250, 247, 242, 0.6);
+  color: var(--bg);
+}
+
+.hero .btn-outline:hover {
+  border-color: var(--bg);
+  color: var(--bg);
+  background: rgba(250, 247, 242, 0.08);
+}
+
 /* ── Botanical SVG ── */
 
 .botanical-line {
   position: absolute;
   opacity: 0.06;
   pointer-events: none;
+}
+
+.hero .botanical-line {
+  opacity: 0.09;
+}
+
+.hero .botanical-line path,
+.hero .botanical-line circle,
+.hero .botanical-line line {
+  stroke: var(--bg);
 }
 
 .botanical-line.left {
@@ -355,6 +431,38 @@ button {
 
 @media (max-width: 768px) {
   .botanical-line { display: none; }
+}
+
+/* ── Photography ── */
+/* Provençal arch frames: every portrait photograph sits behind the same
+   arched mat and warm copper wash, so stock imagery reads as one archive. */
+
+.photo-frame {
+  position: relative;
+  margin: 0;
+  padding: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 50% 50% 0 0 / 18% 18% 0 0;
+  overflow: hidden;
+}
+
+.photo-frame img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 50% 50% 0 0 / 17% 17% 0 0;
+  filter: saturate(0.85) contrast(1.02);
+}
+
+.photo-frame::after {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border-radius: 50% 50% 0 0 / 17% 17% 0 0;
+  background: linear-gradient(165deg, rgba(156, 107, 74, 0.16), rgba(156, 107, 74, 0.03) 50%, rgba(42, 36, 32, 0.12));
+  pointer-events: none;
 }
 
 /* ── Philosophy Section ── */
@@ -396,6 +504,11 @@ button {
 
 .philosophy-text + .philosophy-text {
   margin-top: 1.5rem;
+}
+
+.philosophy-photo {
+  max-width: 420px;
+  margin-top: 2.5rem;
 }
 
 .philosophy-detail {
@@ -479,6 +592,18 @@ button {
   background: var(--bg);
 }
 
+.ingredient-photo {
+  margin-bottom: 1.75rem;
+}
+
+.ingredient-photo img {
+  transition: transform var(--transition);
+}
+
+.ingredient:hover .ingredient-photo img {
+  transform: scale(1.04);
+}
+
 .ingredient-name {
   font-family: var(--serif);
   font-size: 1.15rem;
@@ -551,46 +676,32 @@ button {
 }
 
 .product-visual {
-  aspect-ratio: 3/4;
-  background: var(--border-subtle);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-bottom: 1.25rem;
-  position: relative;
-  overflow: hidden;
 }
 
-.product-visual-inner {
-  width: 45%;
-  height: 65%;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 0.5rem;
+.product-card:hover .product-visual img {
+  transform: scale(1.04);
+}
+
+.product-visual img {
   transition: transform var(--transition);
 }
 
-.product-card:hover .product-visual-inner {
-  transform: translateY(-4px);
-}
-
-.product-visual-label {
-  font-family: var(--serif);
-  font-size: 0.8rem;
-  font-style: italic;
-  color: var(--text-muted);
-  letter-spacing: 0.04em;
-}
-
 .product-visual-size {
-  font-size: 0.65rem;
-  color: var(--text-muted);
-  letter-spacing: 0.06em;
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  z-index: 1;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+  color: rgba(250, 247, 242, 0.92);
+  text-align: center;
+  background: rgba(42, 36, 32, 0.44);
+  backdrop-filter: blur(2px);
 }
 
 .product-name {
@@ -654,7 +765,18 @@ button {
 
 .process-step {
   position: relative;
-  padding-top: 3rem;
+  padding-top: 0;
+}
+
+.process-photo {
+  display: block;
+  height: 160px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  filter: saturate(0.85) contrast(1.02);
+  margin-bottom: 2rem;
 }
 
 .process-number {
@@ -685,6 +807,29 @@ button {
 .commitment {
   padding: var(--section-pad) 0;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.commitment-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.8) contrast(1.03);
+}
+
+.commitment-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(250, 247, 242, 0.94), rgba(42, 36, 32, 0.55) 55%, rgba(42, 36, 32, 0.66));
+}
+
+.commitment .container {
+  position: relative;
+  z-index: 1;
 }
 
 .commitment-inner {
@@ -698,21 +843,22 @@ button {
   font-weight: 300;
   font-style: italic;
   line-height: 1.5;
-  color: var(--text);
+  color: var(--bg);
   margin-bottom: 2rem;
+  text-shadow: 0 2px 18px rgba(42, 36, 32, 0.4);
 }
 
 .commitment-attr {
   font-size: 0.8rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: rgba(250, 247, 242, 0.78);
 }
 
 .commitment-line {
   width: 40px;
   height: 1px;
-  background: var(--accent);
+  background: var(--accent-light);
   margin: 3rem auto 0;
 }
 

@@ -1,5 +1,8 @@
 import './style.css'
 
+// Photography: Pexels (https://www.pexels.com) — free to use under the Pexels license.
+// See public/images/CREDITS.txt for photo IDs and photographers.
+
 function initApp() {
   const app = document.getElementById('app')
   app.innerHTML = `
@@ -23,6 +26,8 @@ function initApp() {
 
     <main>
       <section class="hero" id="hero">
+        <img class="hero-bg" src="/aureline/images/hero.jpg" alt="" fetchpriority="high" decoding="async" />
+        <div class="hero-scrim" aria-hidden="true"></div>
         <svg class="botanical-line left" viewBox="0 0 120 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M60 0 C60 80, 20 120, 60 200 C100 120, 60 80, 60 0Z" stroke="#9C6B4A" stroke-width="0.8"/>
           <path d="M60 60 C40 50, 15 70, 40 85" stroke="#9C6B4A" stroke-width="0.6"/>
@@ -56,6 +61,10 @@ function initApp() {
               <p class="section-label">Our Philosophy</p>
               <p class="philosophy-text">We believe skincare should be honest. Not simplified — honest. Every formula begins with a single question: would we put this on our own skin?</p>
               <p class="philosophy-text">The answer determines everything that follows. No fillers. No compromises. No ingredients chosen for cost or shelf life over efficacy.</p>
+              <figure class="photo-frame philosophy-photo">
+                <img src="/aureline/images/philosophy.jpg" alt="Dried yellow flowers in a laboratory beaker" loading="lazy" decoding="async" />
+                <figcaption class="sr-only">Botanical specimens awaiting extraction</figcaption>
+              </figure>
             </div>
             <div class="philosophy-detail">
               <div class="philosophy-stat reveal">
@@ -84,31 +93,49 @@ function initApp() {
           </div>
           <div class="ingredients-grid">
             <div class="ingredient reveal">
+              <figure class="photo-frame ingredient-photo">
+                <img src="/aureline/images/ingredient-rosehip.jpg" alt="Rosehips on a thorny twig" loading="lazy" decoding="async" />
+              </figure>
               <p class="ingredient-name">Rosehip Seed Oil</p>
               <p class="ingredient-latin">Rosa canina</p>
               <p class="ingredient-desc">Cold-pressed from wild-harvested rosehips in the Drôme valley. Rich in trans-retinoic acid and linoleic acid for cellular renewal.</p>
             </div>
             <div class="ingredient reveal">
+              <figure class="photo-frame ingredient-photo">
+                <img src="/aureline/images/ingredient-helichrysum.jpg" alt="Helichrysum flowers in bloom" loading="lazy" decoding="async" />
+              </figure>
               <p class="ingredient-name">Helichrysum</p>
               <p class="ingredient-latin">Helichrysum italicum</p>
               <p class="ingredient-desc">Steam-distilled from Corsican flowers. Prized for its anti-inflammatory properties and natural regenerative compounds.</p>
             </div>
             <div class="ingredient reveal">
+              <figure class="photo-frame ingredient-photo">
+                <img src="/aureline/images/ingredient-seabuckthorn.jpg" alt="Sea buckthorn berries on a branch" loading="lazy" decoding="async" />
+              </figure>
               <p class="ingredient-name">Sea Buckthorn</p>
               <p class="ingredient-latin">Hippophae rhamnoides</p>
               <p class="ingredient-desc">Berry oil from Alpine harvests. One of the richest natural sources of vitamins A, C, and E for barrier repair.</p>
             </div>
             <div class="ingredient reveal">
+              <figure class="photo-frame ingredient-photo">
+                <img src="/aureline/images/ingredient-pricklypear.jpg" alt="Prickly pear cactus with ripe fruit" loading="lazy" decoding="async" />
+              </figure>
               <p class="ingredient-name">Prickly Pear Seed</p>
               <p class="ingredient-latin">Opuntia ficus-indica</p>
               <p class="ingredient-desc">Hand-pressed from seeds collected in the Haute-Provence. Exceptionally high in tocopherols and essential fatty acids.</p>
             </div>
             <div class="ingredient reveal">
+              <figure class="photo-frame ingredient-photo">
+                <img src="/aureline/images/ingredient-lavender.jpg" alt="Lavender blooms in a garden" loading="lazy" decoding="async" />
+              </figure>
               <p class="ingredient-name">Lavender Absolute</p>
               <p class="ingredient-latin">Lavandula angustifolia</p>
               <p class="ingredient-desc">Sourced from a single estate in Valensole. Used for its calming properties and natural antiseptic qualities.</p>
             </div>
             <div class="ingredient reveal">
+              <figure class="photo-frame ingredient-photo">
+                <img src="/aureline/images/ingredient-jojoba.jpg" alt="Green jojoba seed pods" loading="lazy" decoding="async" />
+              </figure>
               <p class="ingredient-name">Jojoba Esters</p>
               <p class="ingredient-latin">Simmondsia chinensis</p>
               <p class="ingredient-desc">Cold-pressed and molecularly distilled. Mimics the skin's natural sebum composition for balanced hydration.</p>
@@ -126,34 +153,28 @@ function initApp() {
           </div>
           <div class="collection-grid">
             <article class="product-card reveal">
-              <div class="product-visual">
-                <div class="product-visual-inner">
-                  <span class="product-visual-label">Aureline</span>
-                  <span class="product-visual-size">30 ml</span>
-                </div>
-              </div>
+              <figure class="product-visual photo-frame">
+                <img src="/aureline/images/product-morning-oil.jpg" alt="Amber glass dropper bottle dispensing oil" loading="lazy" decoding="async" />
+                <figcaption class="product-visual-size">30 ml · Nº 001</figcaption>
+              </figure>
               <h3 class="product-name">Morning Oil</h3>
               <p class="product-type">Lightweight nourishing serum</p>
               <p class="product-price">€68</p>
             </article>
             <article class="product-card reveal">
-              <div class="product-visual">
-                <div class="product-visual-inner">
-                  <span class="product-visual-label">Aureline</span>
-                  <span class="product-visual-size">50 ml</span>
-                </div>
-              </div>
+              <figure class="product-visual photo-frame">
+                <img src="/aureline/images/product-repair-balm.jpg" alt="Skincare jars with natural textures" loading="lazy" decoding="async" />
+                <figcaption class="product-visual-size">50 ml · Nº 002</figcaption>
+              </figure>
               <h3 class="product-name">Repair Balm</h3>
               <p class="product-type">Concentrated overnight treatment</p>
               <p class="product-price">€94</p>
             </article>
             <article class="product-card reveal">
-              <div class="product-visual">
-                <div class="product-visual-inner">
-                  <span class="product-visual-label">Aureline</span>
-                  <span class="product-visual-size">100 ml</span>
-                </div>
-              </div>
+              <figure class="product-visual photo-frame">
+                <img src="/aureline/images/product-cleansing-elixir.jpg" alt="Minimal skincare bottles on soft fabric" loading="lazy" decoding="async" />
+                <figcaption class="product-visual-size">100 ml · Nº 003</figcaption>
+              </figure>
               <h3 class="product-name">Cleansing Elixir</h3>
               <p class="product-type">Oil-to-milk daily cleanser</p>
               <p class="product-price">€52</p>
@@ -170,21 +191,25 @@ function initApp() {
           </div>
           <div class="process-steps">
             <div class="process-step reveal">
+              <img class="process-photo" src="/aureline/images/process-sourcing.jpg" alt="Harvesting lavender into a woven basket" loading="lazy" decoding="async" />
               <p class="process-number">01</p>
               <h3>Sourcing</h3>
               <p>Ingredients are selected from known growers across Provence, Corsica, and the Alps. Each harvest is tested before purchase.</p>
             </div>
             <div class="process-step reveal">
+              <img class="process-photo" src="/aureline/images/process-extraction.jpg" alt="Gloved hands handling aromatic compounds in a laboratory" loading="lazy" decoding="async" />
               <p class="process-number">02</p>
               <h3>Extraction</h3>
               <p>Cold-pressing and steam distillation happen on-site within 72 hours of harvest to preserve maximum bioavailability.</p>
             </div>
             <div class="process-step reveal">
+              <img class="process-photo" src="/aureline/images/process-formulation.jpg" alt="Mixing skincare cream with precision in a laboratory" loading="lazy" decoding="async" />
               <p class="process-number">03</p>
               <h3>Formulation</h3>
               <p>Each batch is compounded in our Aix-en-Provence laboratory. Formulations are adjusted by season and harvest quality.</p>
             </div>
             <div class="process-step reveal">
+              <img class="process-photo" src="/aureline/images/process-bottling.jpg" alt="Hands filling glass bottles" loading="lazy" decoding="async" />
               <p class="process-number">04</p>
               <h3>Bottling</h3>
               <p>Hand-filled, inspected, and numbered. Every bottle carries its batch and harvest reference.</p>
@@ -194,6 +219,8 @@ function initApp() {
       </section>
 
       <section class="commitment">
+        <img class="commitment-bg" src="/aureline/images/commitment.jpg" alt="" loading="lazy" decoding="async" />
+        <div class="commitment-scrim" aria-hidden="true"></div>
         <div class="container">
           <div class="commitment-inner reveal">
             <blockquote class="commitment-blockquote">
@@ -260,6 +287,7 @@ function initApp() {
   navToggle.addEventListener('click', () => {
     const isOpen = navLinks.classList.toggle('open')
     navToggle.classList.toggle('active')
+    nav.classList.toggle('menu-open', isOpen)
     navToggle.setAttribute('aria-expanded', isOpen)
     document.body.style.overflow = isOpen ? 'hidden' : ''
   })
@@ -269,6 +297,7 @@ function initApp() {
     link.addEventListener('click', () => {
       navLinks.classList.remove('open')
       navToggle.classList.remove('active')
+      nav.classList.remove('menu-open')
       navToggle.setAttribute('aria-expanded', 'false')
       document.body.style.overflow = ''
     })
@@ -278,6 +307,7 @@ function initApp() {
     if (e.key === 'Escape' && navLinks.classList.contains('open')) {
       navLinks.classList.remove('open')
       navToggle.classList.remove('active')
+      nav.classList.remove('menu-open')
       navToggle.setAttribute('aria-expanded', 'false')
       document.body.style.overflow = ''
     }
