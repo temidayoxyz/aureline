@@ -14,7 +14,7 @@ function initApp() {
           <li role="none"><a href="#ingredients" role="menuitem">Ingredients</a></li>
           <li role="none"><a href="#collection" role="menuitem">Collection</a></li>
           <li role="none"><a href="#process" role="menuitem">Process</a></li>
-          <li role="none"><a href="#newsletter" role="menuitem" class="nav-cta">Shop</a></li>
+          <li role="none"><a href="#collection" role="menuitem" class="nav-cta">Shop</a></li>
         </ul>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
           <span></span>
